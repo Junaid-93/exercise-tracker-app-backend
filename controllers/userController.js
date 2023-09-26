@@ -21,7 +21,6 @@ const getUsers = asyncHandler(async (req, res) => {
 //@access public
 const register = async (req, res) => {
     const { name, email, username, password } = req.body
-        console.log('JUnaidddddddd')
     if (!name || !email || !password) {
         return res.status(400).json({ message: 'Fill All required details.' })
     }
@@ -45,7 +44,8 @@ const register = async (req, res) => {
             password: hashedPassword,
         })
         res.status(201).json({ success: true, message: 'Successfully Created' })
-    } catch (error) {
+    }
+    catch (error) {
         res.status(500).json({
             success: false,
             message: `Server Error ${error.message}`,

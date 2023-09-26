@@ -1,10 +1,11 @@
 const express = require('express')
-const dotenv = require('dotenv').config()
-const mongoose = require('mongoose')
-const colors = require('colors')
+// const dotenv = require('dotenv').config()
+// const mongoose = require('mongoose')
+// const colors = require('colors')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const userRoutes = require('./routes/userRoutes')
+const exerciseRoutes = require('./routes/exerciseRoutes')
 // configuration
 const app = express()
 app.use(cors())
@@ -24,7 +25,7 @@ app.get('/', async (req, res) => {
 // })
 
 app.use('/api/users', userRoutes)
-app.use('/api/exercises', require('./routes/exerciseRoutes'))
+app.use('/api/exercises', exerciseRoutes)
 const port = process.env.PORT || 8000
 app.listen(port, async (req, res) => {
     console.log(`Server started at http://localhost:${port}`.cyan.underline)

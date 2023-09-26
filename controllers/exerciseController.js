@@ -23,6 +23,7 @@ const createExercise = async (req, res) => {
             type,
             duration,
             date: date.toLocaleString('en-US'),
+            // new Date().toDateString().slice(3)
             description,
         })
         res.status(201).json({
